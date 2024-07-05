@@ -1,0 +1,14 @@
+.searchContainer {
+	max-width: 880px;
+	margin: auto;
+	margin-bottom: 6rem;
+	position: sticky;
+	top: 0.5rem;
+	z-index: 10;
+}
+
+@media (max-width: 576px) {
+	.searchContainer {
+		margin-bottom: 3rem;
+	}
+}

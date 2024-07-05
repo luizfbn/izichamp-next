@@ -1,13 +1,20 @@
+'use client';
+
+import styles from './header.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from './header.module.css';
+import { usePathname } from 'next/navigation';
 
-export default async function Header() {
+export default function Header() {
+	const pathname = usePathname();
+
 	return (
 		<header className={styles.header}>
-			<nav className={`${styles.nav} container`}>
+			<nav className={styles.nav}>
 				<div>
-					<Link href={'/'}>Home</Link>
+					<Link href={'/'} className={pathname === '/' ? 'active' : ''}>
+						Home
+					</Link>
 				</div>
 				<Image
 					className={styles.logo}
@@ -18,7 +25,12 @@ export default async function Header() {
 					priority
 				/>
 				<div>
-					<Link href={'/champions'}>Campeões</Link>
+					<Link
+						href={'/champions'}
+						className={pathname === '/champions' ? 'active' : ''}
+					>
+						Campeões
+					</Link>
 				</div>
 			</nav>
 		</header>

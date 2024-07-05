@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
-import { type_first, type_second } from '@/functions/fonts';
+import './globals.css';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-import './globals.css';
+import type { Metadata } from 'next';
+import { type_first, type_second } from '@/functions/fonts';
 
 export const metadata: Metadata = {
 	title: 'Izi champ',
