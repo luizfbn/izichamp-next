@@ -1,0 +1,10 @@
+.champions {
+	padding: 3rem 1.25rem;
+	position: relative;
+}
+
+@media (max-width: 576px) {
+	.champions {
+		padding: 3rem 1rem;
+	}
+}

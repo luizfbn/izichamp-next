@@ -1,9 +1,5 @@
+import { IChampionList } from '@/actions/champions-get';
 import { IChampion, ISkin } from '@/actions/champions-skins-get';
-
-// remove
-export type IChampionList = Omit<IChampion, 'tilePath' | 'cost'> & {
-	id: string;
-};
 
 export type ISeachSelect = (IChampion | ISkin) & {
 	selected: boolean;

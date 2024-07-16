@@ -35,7 +35,7 @@ export default async function championsSkinsGet() {
 			},
 		});
 		if (!response.ok)
-			throw new Error('Erro ao pegar lista de champions e skins');
+			throw new Error('Erro ao pegar lista de campeões e skins');
 		const data = (await response.json()) as (IChampion | ISkin)[];
 		return { data, ok: true, error: '' };
 	} catch (error: unknown) {
