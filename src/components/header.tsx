@@ -27,7 +27,7 @@ export default function Header() {
 				<div>
 					<Link
 						href={'/champions'}
-						className={pathname === '/champions' ? 'active' : ''}
+						className={pathname.includes('/champions') ? 'active' : ''}
 					>
 						Campeões
 					</Link>

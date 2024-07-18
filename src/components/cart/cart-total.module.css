@@ -43,6 +43,8 @@
 }
 
 .total li span {
+	display: flex;
+	align-items: center;
 	min-width: 80px;
 	font-family: var(--type-first);
 	font-size: 1.25rem;
@@ -53,6 +55,7 @@
 
 .total li span img {
 	width: 20px;
+	height: 20px;
 	margin-right: 0.5rem;
 }
 

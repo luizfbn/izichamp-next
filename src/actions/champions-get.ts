@@ -1,3 +1,5 @@
+'use server';
+
 import apiError from '@/functions/api-error';
 import { API_CHAMPIONS_GET } from '@/functions/api';
 import { IChampion } from './champions-skins-get';

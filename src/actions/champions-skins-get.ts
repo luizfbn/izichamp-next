@@ -1,3 +1,5 @@
+'use server';
+
 import apiError from '@/functions/api-error';
 import { API_CHAMPION_SKIN_GET } from '@/functions/api';
 
