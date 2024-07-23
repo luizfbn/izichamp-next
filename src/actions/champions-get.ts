@@ -13,7 +13,7 @@ export default async function championsGet() {
 		const { url } = API_CHAMPIONS_GET();
 		const response = await fetch(url, {
 			next: {
-				revalidate: 10,
+				revalidate: 3600 * 4,
 			},
 		});
 		if (!response.ok) throw new Error('Erro ao pegar lista de campeões');

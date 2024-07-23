@@ -74,7 +74,9 @@ export default function CartTotal({ list, onDelete }: ICartTotal) {
 						</span>
 					</li>
 				</ul>
-				<button onClick={onDelete}>Remover tudo</button>
+				<button className='button' onClick={onDelete}>
+					Remover tudo
+				</button>
 			</div>
 		);
 }

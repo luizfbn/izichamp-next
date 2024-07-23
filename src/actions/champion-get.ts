@@ -34,7 +34,7 @@ export default async function championGet(id: string) {
 		const { url } = API_CHAMPION_GET(id);
 		const response = await fetch(url, {
 			next: {
-				revalidate: 10,
+				revalidate: 3600 * 4,
 			},
 		});
 		if (!response.ok) throw new Error('Erro ao pegar campeão');

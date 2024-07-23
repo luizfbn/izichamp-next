@@ -6,11 +6,11 @@ import ShowMore from '../helper/show-more';
 import Image from 'next/image';
 import { IChampionById } from '@/actions/champion-get';
 
-export default function Spells({
-	spells,
-}: {
+type ISpells = {
 	spells: IChampionById['spells'];
-}) {
+};
+
+export default function Spells({ spells }: ISpells) {
 	const [activeTab, setActiveTab] = React.useState(0);
 	const infoRef = React.useRef<HTMLDivElement>(null);
 

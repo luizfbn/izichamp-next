@@ -33,7 +33,7 @@ export default async function championsSkinsGet() {
 		const { url } = API_CHAMPION_SKIN_GET();
 		const response = await fetch(url, {
 			next: {
-				revalidate: 10,
+				revalidate: 3600 * 4,
 			},
 		});
 		if (!response.ok)
