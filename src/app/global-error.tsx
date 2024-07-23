@@ -19,7 +19,7 @@ export default function GlobalError() {
 					className='button'
 					onClick={() => window.location.reload()}
 				>
-					Tente novamente
+					Tentar novamente
 				</button>
 			</body>
 		</html>
