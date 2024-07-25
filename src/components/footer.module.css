@@ -25,6 +25,11 @@
 	font-family: var(--type-second);
 }
 
+.footer .patch {
+	display: block;
+	margin-top: 0.5rem;
+}
+
 @media (max-width: 576px) {
 	.footer {
 		padding: 0 1rem;

@@ -17,3 +17,9 @@ export function API_CHAMPION_SKIN_GET() {
 		url: API_URL,
 	};
 }
+
+export function API_PATCH_GET() {
+	return {
+		url: API_URL + '/patch',
+	};
+}
