@@ -1,4 +1,6 @@
-export const API_URL = 'http://localhost:3333';
+export const API_URL = process.env.API_URL
+	? process.env.API_URL
+	: 'http://localhost:3333';
 
 export function API_CHAMPIONS_GET() {
 	return {
