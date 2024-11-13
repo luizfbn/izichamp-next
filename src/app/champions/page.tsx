@@ -8,6 +8,8 @@ export const metadata: Metadata = {
 	title: 'Izi champ | Campeões',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function ChampionsPage() {
 	const { data } = await championsGet();
 

@@ -17,12 +17,17 @@ function getSavedData(window: Window) {
 export default function Simulator({ data }: { data: (IChampion | ISkin)[] }) {
 	const [selectedList, setSelectedList] = React.useState<ICartItem[]>([]);
 	const [searchList, setSearchList] = React.useState<ICartItem[]>([]);
+	const initialRender = React.useRef(true);
 
 	React.useEffect(() => {
 		setSelectedList(getSavedData(window));
 	}, []);
 
 	React.useEffect(() => {
+		if (initialRender.current) {
+			initialRender.current = false;
+			return;
+		}
 		window.localStorage.setItem('cartList', JSON.stringify(selectedList));
 	}, [selectedList]);
 
