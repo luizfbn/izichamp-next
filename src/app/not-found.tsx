@@ -11,7 +11,7 @@ export default function NotFound() {
 		<div className={`${styles.notFound} container`}>
 			<Image
 				src={'/assets/not-found.svg'}
-				alt={'Não encotrado'}
+				alt={'Não encontrado'}
 				width={50}
 				height={50}
 			/>
