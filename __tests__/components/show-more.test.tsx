@@ -22,7 +22,7 @@ describe('<ShowMore />', () => {
 
 		expect(uncollapsedText).toBeInTheDocument();
 	});
-	it('uncollapse text on click button', () => {
+	it('uncollapses text on click button', () => {
 		const text = Champion.spells[0].description;
 		const length = 20;
 		render(<ShowMore text={text} length={length} />);
@@ -35,7 +35,7 @@ describe('<ShowMore />', () => {
 
 		expect(span.innerHTML.length === text.length).toBeTruthy();
 	});
-	it('collapse text on click button', () => {
+	it('collapses text on click button', () => {
 		const text = Champion.spells[0].description;
 		const length = 20;
 		render(<ShowMore text={text} length={length} />);

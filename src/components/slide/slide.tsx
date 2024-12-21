@@ -24,7 +24,11 @@ export default function Slide({ children }: React.PropsWithChildren) {
 			<button className={styles.button} onClick={slidePrev}>
 				<ArrowLeft />
 			</button>
-			<div ref={contentRef} className={styles.content}>
+			<div
+				ref={contentRef}
+				className={styles.content}
+				data-testid='slide-content'
+			>
 				{children}
 			</div>
 			<button className={styles.button} onClick={slideNext}>

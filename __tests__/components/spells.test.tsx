@@ -10,7 +10,7 @@ describe('<Spells />', () => {
 
 		expect(ul).toBeInTheDocument();
 	});
-	it('first spell active', () => {
+	it('actives first spell', () => {
 		render(<Spells spells={Champion.spells} />);
 
 		const ul = screen.getByRole('list');
@@ -18,7 +18,7 @@ describe('<Spells />', () => {
 
 		expect(li).toHaveClass('active');
 	});
-	it('active spell on click', () => {
+	it('actives spell on click', () => {
 		render(<Spells spells={Champion.spells} />);
 
 		const ul = screen.getByRole('list');
