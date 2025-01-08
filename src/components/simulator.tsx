@@ -34,7 +34,7 @@ export default function Simulator({ data }: { data: (IChampion | ISkin)[] }) {
 	React.useEffect(() => {
 		if (data && data.length) {
 			const list = data.map((item) => {
-				return resetItem(item as ICartItem);
+				return resetItem(item);
 			});
 
 			const savedData: ICartItem[] = getSavedData(window);

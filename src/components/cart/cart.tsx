@@ -3,6 +3,7 @@ import Image from 'next/image';
 import CartItem from './cart-item';
 import CartTotal from './cart-total';
 import { ICartItem } from '@/types/cart';
+import { IChampion, ISkin } from '@/actions/champions-skins-get';
 
 type ICart = {
 	list: ICartItem[];
@@ -10,7 +11,7 @@ type ICart = {
 	setSearchList: React.Dispatch<React.SetStateAction<ICartItem[]>>;
 };
 
-export function resetItem(item: ICartItem) {
+export function resetItem(item: IChampion | ISkin): ICartItem {
 	return {
 		...item,
 		selected: false,
