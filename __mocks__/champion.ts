@@ -1,4 +1,6 @@
-export const Champion = {
+import { IChampionById } from '@/actions/champion-get';
+
+export const Champion: IChampionById = {
 	id: 32,
 	name: 'Amumu',
 	alias: 'Amumu',
