@@ -32,7 +32,11 @@ export default function CartPrice({
 }: ICartPrice) {
 	return (
 		<div className={styles.price}>
-			<div className={styles.priceTitle} onClick={price.onClick}>
+			<div
+				className={styles.priceTitle}
+				onClick={price.onClick}
+				data-testid='price-content'
+			>
 				{icon}
 				<h3
 					style={{
@@ -50,6 +54,7 @@ export default function CartPrice({
 							<input
 								type='checkbox'
 								id={checkbox.id}
+								data-testid={checkbox.id}
 								checked={checkbox.checked}
 								onChange={checkbox.onChange}
 							/>
