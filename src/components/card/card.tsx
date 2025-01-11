@@ -19,6 +19,7 @@ export default function Card({ image, onHoverStyle, size, children }: ICard) {
 				backgroundSize: 'contain',
 				...size,
 			}}
+			data-testid='card'
 		>
 			<div>{children}</div>
 		</div>
