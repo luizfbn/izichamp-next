@@ -4,6 +4,7 @@ import styles from './cart-prices.module.css';
 import React from 'react';
 import CartPrice from './cart-price';
 import Image from 'next/image';
+import LabeledCheckbox from '../labeled-checkbox/labeled-checkbox';
 import RpCheckIcon from '../../../public/assets/rp-check.svg';
 import BeCheckIcon from '../../../public/assets/be-check.svg';
 import { ICartItem } from '@/types/cart';
@@ -94,79 +95,88 @@ export default function CartPrices({ cartItem, setCartItem }: ICartPrices) {
 
 	return (
 		<div className={styles.prices}>
-			<CartPrice
-				icon={
-					<Image
-						src={'/assets/rp.svg'}
-						alt='Riot points'
-						width={20}
-						height={20}
+			<div className={styles.price}>
+				<CartPrice
+					icon={
+						<Image
+							src={'/assets/rp.svg'}
+							alt='Riot points'
+							width={20}
+							height={20}
+						/>
+					}
+					value={cartItem.discountRP.newPrice}
+					oldValue={
+						cartItem.discountRP.hasDiscount ? cartItem.cost.rp : undefined
+					}
+					disabled={cartItem.disabledPrice.RP}
+					onClick={() => handleDisablePrice('RP')}
+				/>
+				<div className={styles.priceDiscount}>
+					<LabeledCheckbox
+						id={cartItem.id + '_rp'}
+						label={<RpCheckIcon />}
+						title={'Desconto em riot points'}
+						checked={cartItem.discountRP.hasDiscount}
+						onChange={(event) => handleCheckbox(event, 'RP')}
 					/>
-				}
-				price={{
-					value: cartItem.discountRP.newPrice,
-					oldValue: cartItem.discountRP.hasDiscount
-						? cartItem.cost.rp
-						: undefined,
-					disabled: cartItem.disabledPrice.RP,
-					onClick: () => handleDisablePrice('RP'),
-				}}
-				checkbox={{
-					id: cartItem.id + '_rp',
-					checked: cartItem.discountRP.hasDiscount,
-					icon: <RpCheckIcon />,
-					onChange: (event) => handleCheckbox(event, 'RP'),
-				}}
-				inputNumber={
-					cartItem.discountRP.hasDiscount
-						? {
-								value: inputValue,
-								onChange: ({ target }) => handleRpInputChange(target.value),
-						  }
-						: undefined
-				}
-			/>
+					{cartItem.discountRP.hasDiscount && (
+						<input
+							type='number'
+							value={inputValue}
+							min='0'
+							max='100'
+							onChange={({ target }) => handleRpInputChange(target.value)}
+						/>
+					)}
+				</div>
+			</div>
 			{cartItem.type === 'Skin' ? (
-				<CartPrice
-					icon={
-						<Image
-							src={'/assets/oe.svg'}
-							alt='Orange essence'
-							width={15}
-							height={20}
-						/>
-					}
-					price={{
-						value: cartItem.cost.orangeEssence,
-						disabled: cartItem.disabledPrice.OE,
-						onClick: () => handleDisablePrice('OE'),
-					}}
-				/>
+				<div className={styles.price}>
+					<CartPrice
+						icon={
+							<Image
+								src={'/assets/oe.svg'}
+								alt='Orange essence'
+								width={15}
+								height={20}
+							/>
+						}
+						value={cartItem.cost.orangeEssence}
+						disabled={cartItem.disabledPrice.OE}
+						onClick={() => handleDisablePrice('OE')}
+					/>
+				</div>
 			) : (
-				<CartPrice
-					icon={
-						<Image
-							src={'/assets/be.svg'}
-							alt='Blue essence'
-							width={17}
-							height={20}
+				<div className={styles.price}>
+					<CartPrice
+						icon={
+							<Image
+								src={'/assets/be.svg'}
+								alt='Blue essence'
+								width={17}
+								height={20}
+							/>
+						}
+						value={cartItem.discountBE.newPrice}
+						oldValue={
+							cartItem.discountBE.hasDiscount
+								? (cartItem as IChampion).cost.blueEssence
+								: undefined
+						}
+						disabled={cartItem.disabledPrice.BE}
+						onClick={() => handleDisablePrice('BE')}
+					/>
+					<div className={styles.priceDiscount}>
+						<LabeledCheckbox
+							id={cartItem.id + '_be'}
+							label={<BeCheckIcon />}
+							title={'Desconto em fragmento de campeão'}
+							checked={cartItem.discountBE.hasDiscount}
+							onChange={(event) => handleCheckbox(event, 'BE')}
 						/>
-					}
-					price={{
-						value: cartItem.discountBE.newPrice,
-						oldValue: cartItem.discountBE.hasDiscount
-							? (cartItem as IChampion).cost.blueEssence
-							: undefined,
-						disabled: cartItem.disabledPrice.BE,
-						onClick: () => handleDisablePrice('BE'),
-					}}
-					checkbox={{
-						id: cartItem.id + '_be',
-						checked: cartItem.discountBE.hasDiscount,
-						icon: <BeCheckIcon />,
-						onChange: (event) => handleCheckbox(event, 'BE'),
-					}}
-				/>
+					</div>
+				</div>
 			)}
 		</div>
 	);
